@@ -51,8 +51,7 @@ Sea HTML, CSS, o Javascript, es importante que el código se comente para facili
 **Ejemplos:**
 ```html
 <!-- El siguiente listado será llenado dinámicamente -->
-<ul id="ultimasnoticias" class="ultimasnoticias">
-</ul>
+<ul id="ultimasnoticias" class="ultimasnoticias"></ul>
 ```
 
 ```css
@@ -66,9 +65,7 @@ html, body {
     en Internet Explorer/Edge ≤ 6
     http://browserhacks.com/#hack-f0ed28ec60d48b6b0b6e4e8dc9fc8d06
 */
-* html, body {
-    overflow-x: hidden;
-}
+* html, body { overflow-x: hidden; }
 ```
 
 ```javascript
