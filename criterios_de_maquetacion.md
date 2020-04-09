@@ -62,7 +62,7 @@ html, body {
 
 /*
     Fix para quitar scroll horizontal
-    en Internet Explorer/Edge ≤ 6
+    en Internet Explorer ≤ 6
     http://browserhacks.com/#hack-f0ed28ec60d48b6b0b6e4e8dc9fc8d06
 */
 * html, body { overflow-x: hidden; }
@@ -105,7 +105,7 @@ Es importante tomar en cuenta de que en el caso de que por requerimiento tuviera
 Evita usar imágenes para mostrar texto siempre que sea posible. Esto permite hacer la carga de la página más rápida, además de que hará más fácil cambiar el texto si se requiere.
 
 ### Optimizar el código CSS y JS:
-Optimizar el código tanto como sea posible, reutilizando funciones y agrupando estilos similares. La página debe funcionar además, **con una versión minificada del js y css** y contar lon los archivos originales sin minimizar, para poder editarlos. Si lo necesitas, puedes utilizar servicios como *[Minifier.Org](https://www.minifier.org/)*
+Optimizar el código tanto como sea posible, reutilizando funciones y agrupando estilos similares. La página debe funcionar además, **con una versión minificada del js y css** y contar con los archivos originales sin minimizar, para poder editarlos. Si lo necesitas, puedes utilizar servicios como *[Minifier.Org](https://www.minifier.org/)*
 
 ### Optimizar imágenes:
 Utiliza imágenes optimizadas para web, recortadas al tamaño que necesitas, en formato jpeg preferentemente (80% de calidad aprox) y png solo si se requiere transparencia.
