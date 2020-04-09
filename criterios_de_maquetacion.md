@@ -207,7 +207,7 @@ Para evitar modificar variables desde cualquier parte del código o que  existan
 También es importante que **agrupes tus funciones por componente**, ya que esto facilitará el mantenimiento y les da independencia, pues permite que las puedas añadir o retirar sin romper el resto del código.
 
 **Referencias:**  
-https://frontendlabs.io/2643--patron-modular-en-javascript. 
+https://frontendlabs.io/2643--patron-modular-en-javascript  
 https://www.wextensible.com/temas/javascript-closure/encapsulamiento.html  
 http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html  
 https://developer.mozilla.org/es/docs/Web/JavaScript/Introducci%C3%B3n_a_JavaScript_orientado_a_objetos
