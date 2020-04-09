@@ -128,16 +128,16 @@ Para dar estructura y hacer que tus reglas no afecten a otras partes del dom, **
 
 ***Ejemplo:***
 ```css
-.bloque-titulo {
+.titulo {
     /*
-        TODOS los elementos con clase .bloque-titulo
+        MAL: TODOS los elementos con clase .titulo
         en el <BODY> serán afectados
     */
 }
 
-.bloque .bloque-titulo {
+.bloque .titulo {
     /*
-        Solo los elementos con clase .bloque-titulo
+        BIEN: Solo los elementos con clase .titulo
         dentro del elemento .bloque serán afectados
     */
 }
