@@ -1,4 +1,4 @@
-# Criterios de aceptación de maquetas de terceros.
+# Criterios de aceptación de maquetas de terceros
 
 **CONTENIDO**  
 [Generales](#generales)  
@@ -47,6 +47,42 @@ cambiarContenido('Hola Mundo');
 
 ### Comentar código:
 Sea HTML, CSS, o Javascript, es importante que el código se comente para facilitar una revisión posterior. Tus comentarios deben explicar por qué funciona de la manera en que funciona y cuál es el objetivo general del código.
+
+**Ejemplos:**
+```html
+<!-- El siguiente listado será llenado dinámicamente -->
+<ul id="ultimasnoticias" class="ultimasnoticias">
+</ul>
+```
+
+```css
+html, body {
+    height: 100%;
+    -ms-overflow-x: hidden; /* Quita scroll horizontal en IE8 */
+}
+
+/*
+    Fix para quitar scroll horizontal
+    en Internet Explorer/Edge ≤ 6
+    http://browserhacks.com/#hack-f0ed28ec60d48b6b0b6e4e8dc9fc8d06
+*/
+* html, body {
+    overflow-x: hidden;
+}
+```
+
+```javascript
+// La siguiente función cambia el contenido HTML del bloque
+function cambiarContenido(mensaje){
+    var elemento = document.getElementById('bloque1');
+
+    if(mensaje!==''){
+        elemento.innerHTML = mensaje;
+    }
+}
+cambiarContenido('Hola Mundo'); // Llamamos a la función y proporcionamos el mensaje
+```
+
 
 ### Elementos obsoletos:
 No utilizar Flash, ni etiquetas HTML, ni propiedades CSS ni métodos o características javascript considerados obsoletos.
