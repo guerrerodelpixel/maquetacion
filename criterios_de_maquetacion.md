@@ -11,7 +11,7 @@
 ### Asegurarse de que el código es legible y fácil de seguir:
 Escribir código conciso y legible es obligatorio, nos ahorrará dolores de cabeza en el futuro. Las posibilidades de escribir código que nunca se cambiará o nunca se volverá a ver son escasas, y el tiempo que se pierde en el código antiguo es un lujo que no podemos costear.
 
-*Para recomendaciones generales de código se puede consultar la guía de código en [Codeguide.Co](https://codeguide.co/)*
+*Una muy buena guía de código es [Codeguide.Co](https://codeguide.co/), te recomendamos revisarla y aplicarla cuando sea posible*
 
 ### Usar indentación:
 Usa la sangría como una representación visual de elementos anidados, añadiendo un espacio grande (tabulador o 4 espacios) a cada elemento hijo.
@@ -64,7 +64,7 @@ Por ello es importante no utilizar propiedades ni etiquetas experimentales, tant
 *Para verificar la compatibilidad de tu código puedes consultar el sitio [Caniuse.Com](https://caniuse.com/)*
 
 ### No depender de librerías y frameworks:
-Si bien no hay nada de malo en convertirse en un maestro en una librería o framework específico, es importante no confiar exclusivamente en esos métodos. Todas las librerías y frameworks están construidos con los propios lenguajes nativos y se actualizan y eliminan constantemente, además de que no se tiene control alguno sobre los bugs y fallas de seguridad que puedan tener. Para no complicar el mantenimiento posterior y tener un mejor control sobre el diseño y funcionalidad, es preferible utilizar los lenguajes nativos, a menos que se tenga un desarrollo que dependa de frameworks específicos como React o Angular.
+Si bien no hay nada de malo en convertirse en un maestro en una librería o framework específico, es importante no confiar exclusivamente en esos métodos. Todas las librerías y frameworks están construidos con los propios lenguajes nativos y se actualizan y eliminan constantemente, además de que no se tiene control alguno sobre los bugs y fallas de seguridad que puedan tener. Para no complicar el mantenimiento posterior y tener un mejor control sobre el diseño y funcionalidad, es preferible utilizar los lenguajes nativos, a menos que se tenga un desarrollo que dependa de frameworks específicos como *React* o *Angular*.
 
 Es importante tomar en cuenta de que en el caso de que por requerimiento tuvieras que utilizar alguna librería, **nunca debes modificarla**.
 
@@ -72,10 +72,10 @@ Es importante tomar en cuenta de que en el caso de que por requerimiento tuviera
 Evita usar imágenes para mostrar texto siempre que sea posible. Esto permite hacer la carga de la página más rápida, además de que hará más fácil cambiar el texto si se requiere.
 
 ### Optimizar el código CSS y JS:
-Optimizar el código tanto como sea posible, reutilizando funciones y agrupando estilos similares. La página debe funcionar además, **con una versión minificada del js y css** y contar lon los archivos originales sin minimizar, para poder editarlos. Si lo necesitas, puedes utilizar servicios como *[minifier](https://www.minifier.org/)*
+Optimizar el código tanto como sea posible, reutilizando funciones y agrupando estilos similares. La página debe funcionar además, **con una versión minificada del js y css** y contar lon los archivos originales sin minimizar, para poder editarlos. Si lo necesitas, puedes utilizar servicios como *[Minifier.Org](https://www.minifier.org/)*
 
 ### Optimizar imágenes:
-Utiliza imágenes optimizadas para web, recortadas al tamaño que necesitas, en formato jpeg preferentemente (80% de calidad aprox) y png sólo si se requiere transparencia.
+Utiliza imágenes optimizadas para web, recortadas al tamaño que necesitas, en formato jpeg preferentemente (80% de calidad aprox) y png solo si se requiere transparencia.
 
 ## HTML
 ### Cuidar el cierre de etiquetas:
@@ -88,7 +88,7 @@ Se aconseja además solo utilizar el atributo id para facilitar la funcionalidad
 
 Se aconseja también **nunca estructurar con el elemento `<table>`** a menos que sean datos estadísticos o listados.
 
-Referencias:
+Referencias:  
 https://desarrolloweb.com/articulos/etiquetas-semanticas-html5.html  
 http://www.manualweb.net/html5/semantica-html5/  
 https://www.arkaitzgarro.com/html5/capitulo-2.html  
@@ -105,22 +105,45 @@ Los estilos en línea se refieren principalmente a utilizar estilos dentro de la
 De la misma manera, debe tratar de evitarse el incluir la hoja de estilos en el mismo archivo html que se está trabajando. **HTML y CSS Siempre deben trabajarse en archivos separados.**
 
 ### Evitar dar estilo directamente a las etiquetas:
-Con excepción del reset, los estilos deben ser aplicados a las clases de los elementos. Esto evita que se alteren los estilos de otros elementos o se haga un *reset involuntario* que no teníamos previsto.
+Con excepción del reset o estilos ***muy generales***, las reglas deben ser aplicadas a las clases de los elementos. Esto evita que se alteren los estilos de otros elementos o se haga un *reset involuntario* que no teníamos previsto.
 
 **Ejemplo:**
 ```html
 <h1 clase="titulo">Título</h1>
 
 <style>
-    .titulo { color: #333333; }
+    h1 { color: #333333; } /* MAL: esto afectará a todos los elementos H1 */
+    .titulo { color: #333333; } /* BIEN: Esto sólo afecta al elemento .titulo */
 </style>
 ```
 
-## Agrupar los estilos por componente:
-Para facilitar el mantenimiento y la claridad del código, los estilos deben estar estructurados por grupos de componentes, así es más fácil saber, por ejemplo que `.menu .menu-boton {}` se refiere a los botones del menú.
-
 ### Evitar el uso de !important:
 Los !important en CSS tienen la capacidad de anular cualquier propiedad de un elemento, dificultando cualquier edición posterior. Por ello **no se debe usar !important en ninguno de tus estilos**.
+
+### Agrupar los estilos por componente:
+Para facilitar el mantenimiento y la claridad del código, los estilos deben estar estructurados por grupos de componentes, así es más fácil saber, por ejemplo que `.menu .menu-boton {}` se refiere a los botones del menú. Además esto facilita el encapsulamiento de css.
+
+### Encapsular CSS:
+Para dar estructura y hacer que tus reglas no afecten a otras partes del dom, **es importante que encapsules tu código**, utilizando selectores descendentes.
+
+***Ejemplo:***
+```css
+.bloque-titulo {
+    /*
+        TODOS los elementos con clase .bloque-titulo
+        en el <BODY> serán afectados
+    */
+}
+
+.bloque .bloque-titulo {
+    /*
+        Solo los elementos con clase .bloque-titulo
+        dentro del elemento .bloque serán afectados
+    */
+}
+```
+
+Existen varias formas de hacerlo. Puedes usar la [Metodología Object Oriented CSS](https://blog.interactius.com/metodolog%C3%ADa-css-object-oriented-css-oocss-b58118935d3e) o la [Metodología BEM](http://getbem.com/) o basar tu nomenclatura en los dos, lo importante es que además de ser práctico, *pueda ser lo suficientemente claro como para que otra persona lo modifique*. 
 
 ### Combinación de Desarrollo Mobile First y Diseño Responsivo:
 Con el fin de mejorar la experiencia de usuario se recomienda preparar el contenido del sitio web para los diferentes dispositivos y plataformas y asegurarse de que es accesible de manera eficaz independientemente de la resolución o terminal con la que acceda el usuario.
@@ -141,3 +164,16 @@ https://www.initcoms.com/por-que-necesitas-un-sitio-web-con-responsive-design/
 ## Javascript
 ### Nombres de Variables y Funciones:
 Cuando uses JavaScript, trata de usar nombres de variables y funciones que tengan sentido. Por ejemplo, describiendo el funcionamiento (`enviarFormulario()`,`abrirMenu()`) o el objeto al que se refiere (`contenedor`, `botonAbrir`). Para separar palabras es común usar camelCase, que consiste en escribir la primera letra de cada palabra en mayúscula, a partir de la segunda palabra.
+
+### Uso de Patrones y encapsulamiento:
+Para evitar modificar variables desde cualquier parte del código o que  existan colisiones entre funciones con el mismo nombre es importante que utilices patrones modulares o hagas tu código javascript *orientado a objetos*.
+
+También es importante que **agrupes tus funciones por componente**, ya que esto facilitará el mantenimiento y les da independencia, pues permite que las puedas añadir o retirar sin romper el resto del código.
+
+**Referencias:**  
+https://frontendlabs.io/2643--patron-modular-en-javascript
+https://www.wextensible.com/temas/javascript-closure/encapsulamiento.html
+http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+https://developer.mozilla.org/es/docs/Web/JavaScript/Introducci%C3%B3n_a_JavaScript_orientado_a_objetos
+
+
