@@ -162,6 +162,9 @@ https://desarrolloweb.com/articulos/que-es-responsive-web-design.html
 https://www.initcoms.com/por-que-necesitas-un-sitio-web-con-responsive-design/
 
 ## Javascript
+### Orden de carga de los scripts:
+Para permitir la carga rápida del DOM, se recomienda añadir los elementos `<script>` al final del cuerpo (justo antes de la etiqueta `<body>`), así evitaremos que la página se quede colgada si un error en el js detiene la carga.
+
 ### Nombres de Variables y Funciones:
 Cuando uses JavaScript, trata de usar nombres de variables y funciones que tengan sentido. Por ejemplo, describiendo el funcionamiento (`enviarFormulario()`,`abrirMenu()`) o el objeto al que se refiere (`contenedor`, `botonAbrir`). Para separar palabras es común usar camelCase, que consiste en escribir la primera letra de cada palabra en mayúscula, a partir de la segunda palabra.
 
@@ -171,9 +174,9 @@ Para evitar modificar variables desde cualquier parte del código o que  existan
 También es importante que **agrupes tus funciones por componente**, ya que esto facilitará el mantenimiento y les da independencia, pues permite que las puedas añadir o retirar sin romper el resto del código.
 
 **Referencias:**  
-https://frontendlabs.io/2643--patron-modular-en-javascript
-https://www.wextensible.com/temas/javascript-closure/encapsulamiento.html
-http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+https://frontendlabs.io/2643--patron-modular-en-javascript. 
+https://www.wextensible.com/temas/javascript-closure/encapsulamiento.html  
+http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html  
 https://developer.mozilla.org/es/docs/Web/JavaScript/Introducci%C3%B3n_a_JavaScript_orientado_a_objetos
 
 
